@@ -1,0 +1,49 @@
+.insta-image {
+    background-color: grey;
+}
+
+#instafeed a img {
+    /* Has limited support for Microsoft Edge and no support for IE11  */
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    -o-filter: brightness(50%);
+    -ms-filter: brightness(50%);
+    -moz-filter: brightness(50%);
+    height: 285px;
+    width: 100%;
+}
+
+.social{
+	margin:0;
+	padding:0;
+}
+
+table{
+	/*border:solid 1px #555;*/
+	width:100%;
+	width:100%;
+}
+
+td{
+	/*border:solid 1px #fff;*/
+	width:100px;
+	height:90px;
+	text-align:center;
+}
+
+.social-icon{
+	width:84px;
+	height:84px;
+}
+
+/* IE8 Fix for the Instagram feed */
+#instafeed .instafallback { display: none; }
+
+/* Show this div block only for IE8 */
+.no-csstransforms3d #instafeed .instafallback { 
+    display: block; 
+    height: 285px;
+    background-color: navy;
+    background-image: url(../img/instagram.png);
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,97 @@
+.flip-container {
+	perspective: 900px;
+	position: relative;
+	width: 100%;
+}
+
+#card {
+	height: 100%;
+	position: absolute;
+	transform-origin: right center;
+	transform-style: preserve-3d;
+	transition: transform 0.4s;
+	width: 100%;
+}
+
+#card.flipped { transform: translateX( -100% ) rotateY( -180deg ); }
+
+/* fallback behaviour for IE browsers that do not support 3D transform */
+.no-preserve3d #card.flipped, 
+.no-csstransforms3d #card.flipped, 
+.no-preserve3d #card.flipped .back,
+.no-csstransforms3d #card.flipped .back {
+    transform: none;
+}
+
+/* ensure the back card shows in IE8/9 when toggle clicked */
+.no-csstransforms3d #card.flipped .back {
+    display: block;
+}
+
+/* make the front car visible when page loads in IE8/9 */
+.no-csstransforms3d #card .front {
+    display: block;
+}
+
+/* Swap out visiblity of front card so back card is visible in IE8/9 */
+.no-preserve3d #card.flipped .front,
+.no-csstransforms3d #card.flipped .front { 
+    display: none;
+}
+
+#card div {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	display: block;
+	font-size: 1em;
+	position: absolute;
+	width: 100%;
+}
+
+#card div h3 { line-height: 1; }
+#card div p { font-weight: normal; }
+
+#card .back {
+	height: 285px;
+	transform: rotateY( 180deg );
+    z-index: 0;
+}
+
+#card .front {
+    z-index: 10;
+}
+
+.front, .back{
+	text-align:center;
+	padding:1em;
+	background:#333;
+	color:#fff;
+	height: 285px; 
+}
+
+.back a:link, .back a:visited{
+	color:#fff;	
+}
+.front{
+	background:teal; /*change the css */
+	}
+
+.back{
+	background-color:teal;
+	background-image:url(../img/cuneiform-tablet.png);
+	background-repeat:no-repeat;
+	background-size:80%;
+	background-position:30px 90px;
+}
+
+#info{
+	padding:0;
+	margin:2em 0 0 0;
+    cursor: pointer;
+}
+
+#resolveInfo{
+	padding:0;
+	margin:4em 0 0 0;
+    cursor: pointer;
+}
